@@ -3,12 +3,16 @@ import multer from "multer";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware CORS
+app.use(cors());
 
 // Middleware untuk memvalidasi API key
 const validateApiKey = (req: Request, res: Response, next: NextFunction) => {
