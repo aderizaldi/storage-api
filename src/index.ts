@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3000;
 // Middleware untuk memvalidasi API key
 const validateApiKey = (req: Request, res: Response, next: NextFunction) => {
   const apiKey = req.headers["x-api-key"]; // API key dikirimkan melalui header `x-api-key`
-  console.log({ apiKey, process: process.env.API_KEY });
   if (!apiKey || apiKey !== process.env.API_KEY) {
     return res.status(403).json({ message: "Forbidden: Invalid API Key" });
   }
